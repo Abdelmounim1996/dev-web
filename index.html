@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <form action="/table.html" method="post" id="myForm">
+        <fieldset>
+            <legend>Pointeuse </legend>
+            <label for="fname">Nom:</label>
+            <input type="text" id="fname" name="fname" value="Leboucher" readonly><br><br>
+            <label for="lname">Prénom :</label>
+            <input type="text" id="lname" name="lname" value="Gaelle" readonly><br><br>
+            <select id="mySelect">
+                <option value="option1">Entrée</option>
+                <option value="option2">Repas (début)</option>
+                <option value="option3">Repas (fin)</option>
+                <option value="option3">Sortie</option>
+            </select>
+            <br><br>
+
+            <label for="lname">Événement :</label><br>
+            <input type="datetime-local" name="event-time" id="event-time">
+        </fieldset><br>
+        <input type="submit" value="soumettre " id="submit" onclick="saveOption()">
+    </form>
+    <!-- <p id="result"></p> -->
+
+
+    <script src="App.js"></script>
+
+</body>
+
+</html>
