@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tableau bien stylé</title>
+</head>
+
+<body>
+
+    <table id="myTable">
+        <tr>
+            <th>Date</th>
+            <th>Jour</th>
+            <th>Entrée</th>
+            <th>Repas (début)</th>
+            <th>Repas (fin)</th>
+            <th>Sortie</th>
+            <th>Total Heures du Jour</th>
+        </tr>
+        <tr>
+            <td><span id="displayDate"></span></td>
+            <td><span id="displayDay"></span></td>
+            <td><span id="displayEntry"></span></td>
+            <td><span id="displayWeek"></span></td>
+            <td><span id="displayMealEnd"></span></td>
+            <td><span id="displayExit"></span></td>
+            <td><span id="displayTotalHours"></span></td>
+        </tr>
+    </table>
+
+    <script>
+        // Récupérer la valeur depuis le localStorage
+        const storedDateTimeValue = localStorage.getItem('dateTimeValue');
+
+        // Convertir en objet de date JavaScript
+        const dateObject = new Date(storedDateTimeValue.replace('T', ' '));
+
+        // Fonction pour obtenir le numéro de la semaine
+        Date.prototype.getWeek = function () {
+            var date = new Date(this.getTime());
+            date.setHours(0, 0, 0, 0);
+            date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+            var week1 = new Date(date.getFullYear(), 0, 4);
+            return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 -
+                3 + (week1.getDay() + 6) % 7) / 7);
+        };
+
+        // Afficher la date et l'heure séparément dans le tableau
+        // document.getElementById('displayDate').textContent = dateObject.toLocaleDateString();
+        // document.getElementById('displayDay').textContent = dateObject.toLocaleString('en', { weekday: 'long' });
+        // document.getElementById('displayEntry').textContent = dateObject.toLocaleTimeString();
+        // document.getElementById('displayWeek').textContent = dateObject.getWeek();
+
+        // document.getElementById('displayMealEnd').textContent = dateObject.toLocaleTimeString();
+        // document.getElementById('displayExit').textContent = dateObject.toLocaleTimeString();
+        // Autres valeurs peuvent être ajoutées de manière similaire
+
+
+
+        document.getElementById('displayDate').textContent = dateObject.toLocaleDateString();
+        document.getElementById('displayDay').textContent = dateObject.toLocaleString('en', { weekday: 'long' });
+
+        // document.getElementById('displayEntry').textContent = dateObject.toLocaleTimeString();
+        // document.getElementById('displayWeek').textContent = dateObject.getWeek();
+        // document.getElementById('displayMealEnd').textContent = dateObject.toLocaleTimeString();
+        // document.getElementById('displayExit').textContent = dateObject.toLocaleTimeString();
+
+
+        function saveOption() {
+            var selectedOption = document.getElementById('mySelect').value;
+            localStorage.setItem('selectedOption', selectedOption);
+
+            if (selectedOption === 'option1') {
+                document.getElementById('displayEntry').textContent = dateObject.toLocaleTimeString();
+
+            } else if (selectedOption === 'option2') {
+                document.getElementById('displayWeek').textContent = dateObject.getWeek();
+
+            } else if (selectedOption === 'option3') {
+                document.getElementById('displayMealEnd').textContent = dateObject.toLocaleTimeString();
+            } else {
+                document.getElementById('displayExit').textContent = dateObject.toLocaleTimeString();
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script src="App.js"></script>
+</body>
+
+</html>
