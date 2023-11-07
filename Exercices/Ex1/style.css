@@ -1,0 +1,92 @@
+/* Réinitialisation des styles par défaut pour tous les éléments */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: larger;
+    /* Augmente la taille de la police pour tous les éléments */
+    font-family: cursive;
+    /* Utilise une police cursive pour tous les éléments */
+}
+
+/* Styles pour le corps de la page */
+body {
+    text-align: center;
+    /* Centre le texte horizontalement dans la page */
+    overflow: auto;
+    /* Ajoute une barre de défilement si le contenu dépasse la taille de la fenêtre */
+    border: solid;
+    /* Ajoute une bordure solide autour du corps de la page */
+}
+
+/* Styles pour l'en-tête de la page */
+header {
+    background-color: gray;
+    /* Couleur d'arrière-plan grise pour l'en-tête */
+    height: 20vh;
+    /* Hauteur de 20 % de la hauteur de la fenêtre visible pour l'en-tête */
+    line-height: 20vh;
+    /* Définit la hauteur de ligne pour l'en-tête */
+    border-bottom: solid;
+    /* Ajoute une bordure en bas de l'en-tête */
+}
+
+/* Styles pour la barre de navigation */
+nav {
+    background-color: gray;
+    /* Couleur d'arrière-plan grise pour la barre de navigation */
+    height: 10vh;
+    /* Hauteur de 10 % de la hauteur de la fenêtre visible pour la barre de navigation */
+    line-height: 10vh;
+    /* Définit la hauteur de ligne pour la barre de navigation */
+    border-bottom: solid;
+    /* Ajoute une bordure en bas de la barre de navigation */
+}
+
+/* Styles pour le contenu de la page */
+.content {
+    background-color: gray;
+    /* Couleur d'arrière-plan grise pour le contenu */
+    width: 20%;
+    /* Largeur de 20 % de la largeur de la fenêtre visible pour le contenu */
+    float: left;
+    /* Flotte le contenu à gauche de la page */
+    height: 60vh;
+    /* Hauteur de 60 % de la hauteur de la fenêtre visible pour le contenu */
+    line-height: 60vh;
+    /* Définit la hauteur de ligne pour le contenu */
+}
+
+/* Styles pour le contenu principal de la page */
+main {
+    background-color: gray;
+    /* Couleur d'arrière-plan grise pour le contenu principal */
+    width: 60%;
+    /* Largeur de 60 % de la largeur de la fenêtre visible pour le contenu principal */
+    float: left;
+    /* Flotte le contenu principal à gauche de la page */
+    height: 60vh;
+    /* Hauteur de 60 % de la hauteur de la fenêtre visible pour le contenu principal */
+    line-height: 60vh;
+    /* Définit la hauteur de ligne pour le contenu principal */
+    border: none;
+    /* Supprime la bordure par défaut pour le contenu principal */
+    border-right: solid;
+    /* Ajoute une bordure à droite du contenu principal */
+    border-left: solid;
+    /* Ajoute une bordure à gauche du contenu principal */
+}
+
+/* Styles pour le pied de page de la page */
+footer {
+    background-color: gray;
+    /* Couleur d'arrière-plan grise pour le pied de page */
+    height: 10vh;
+    /* Hauteur de 10 % de la hauteur de la fenêtre visible pour le pied de page */
+    clear: left;
+    /* Efface les flottants à gauche de la page */
+    line-height: 10vh;
+    /* Définit la hauteur de ligne pour le pied de page */
+    border-top: solid;
+    /* Ajoute une bordure en haut du pied de page */
+}
