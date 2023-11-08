@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --h: 20vh;
+}
+
+body {
+    border: solid;
+    text-align: center;
+    height: 100vh;
+    background-color: gray;
+    font-family: cursive;
+}
+
+header {
+    border-bottom: solid;
+    padding: 10vh 0;
+}
+
+nav {
+    border-bottom: solid;
+    padding: 5vh 0;
+}
+
+.content {
+    padding: var(--h) 0;
+    width: 10%;
+    display: inline-block;
+}
+
+main {
+    padding: var(--h) 0;
+    border-left: solid;
+    border-right: solid;
+    width: 60%;
+    display: inline-block;
+}
+
+footer {
+    padding: 5vh 0;
+    border-top: solid;
+}
