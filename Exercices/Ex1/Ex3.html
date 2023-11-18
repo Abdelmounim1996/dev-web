@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+        }
+
+        .cercle_sup {
+            width: 500px;
+            height: 500px;
+            border: solid gray;
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(20, 1fr);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 4px 20px;
+            background-color: azure;
+
+        }
+
+        .grid {
+            border: solid gray;
+            opacity: 0.2;
+        }
+
+        .disc {
+            position: absolute;
+            background-color: black;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            left: calc(50% - 15px);
+            top: calc(50% - 15px);
+        }
+
+        .h {
+            position: absolute;
+            background-color: black;
+            display: block;
+            border-radius: 10px;
+            width: 15px;
+            height: 100px;
+            left: 49%;
+            top: 50%;
+            transform: rotate(160deg);
+            transform-origin: top;
+            animation: ss 43200s linear infinite;
+        }
+
+        .m {
+            position: absolute;
+            background-color: black;
+            border-radius: 10px;
+            width: 10px;
+            height: 150px;
+            left: 49%;
+            top: 50%;
+            transform: rotate(90deg);
+            transform-origin: top;
+            animation: ss 3600s linear infinite;
+        }
+
+        .s {
+            position: absolute;
+            background-color: black;
+            border-radius: 10px;
+            width: 5px;
+            height: 190px;
+            left: 49%;
+            top: 50%;
+            transform-origin: top;
+            animation: ss 60s infinite steps(60);
+        }
+
+        @keyframes ss {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            counter-set: it;
+        }
+
+        .time::before {
+            counter-increment: it;
+            content: counter(it);
+        }
+
+        .time {
+            position: absolute;
+        }
+
+        span.time {
+            font-family: cursive;
+            font-size: 50px;
+
+            font-weight: bolder;
+            position: absolute;
+            width: 25px;
+        }
+
+        /* ************************** */
+        span:nth-of-type(1) {
+            left: 350px;
+            top: 20px;
+        }
+
+        span:nth-of-type(5) {
+            left: 350px;
+            bottom: 20px;
+        }
+
+        span:nth-of-type(7) {
+            right: 350px;
+            bottom: 20px;
+        }
+
+        span:nth-of-type(11) {
+            right: 365px;
+            top: 20px;
+        }
+
+        /* ************************ */
+        span:nth-of-type(2) {
+            left: 430px;
+            top: 100px;
+        }
+
+        span:nth-of-type(4) {
+            left: 430px;
+            bottom: 100px;
+        }
+
+        span:nth-of-type(8) {
+            right: 430px;
+            bottom: 100px;
+        }
+
+        span:nth-of-type(10) {
+            right: 440px;
+            top: 100px;
+        }
+
+        /* ******************* */
+        span:nth-of-type(3) {
+            right: 10px;
+            top: 215px;
+        }
+
+        span:nth-of-type(6) {
+            left: 235px;
+            bottom: 0;
+        }
+
+        span:nth-of-type(9) {
+            left: 10px;
+            bottom: 220px;
+        }
+
+        span:nth-of-type(12) {
+            top: -10px;
+            left: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cercle_sup">
+
+        <div class="cercle_inf"></div>
+
+        <div class="h"></div>
+        <div class="m"></div>
+        <div class="s"></div>
+        <div class="disc"></div>
+
+        <span class="time"></span>
+
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+        <span class="time"></span>
+    </div>
+</body>
+
+</html>
