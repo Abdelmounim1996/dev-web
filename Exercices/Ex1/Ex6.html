@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #c0 {
+            color: white;
+            position: relative;
+        }
+
+        #before,
+        #after {
+            color: white;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.41);
+            width: 60px;
+            height: 60px;
+            top: calc(50% - 25px);
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+
+        #before {
+            border-top-right-radius: 10%;
+            border-bottom-right-radius: 10%;
+        }
+
+        #after {
+            right: 0;
+            border-top-left-radius: 10%;
+            border-bottom-left-radius: 10%;
+        }
+
+        #c3 {
+            font-size: 40px;
+            font-weight: bolder;
+            font-family: cursive;
+            text-transform: capitalize;
+            text-decoration: underline;
+            text-align: center;
+            position: absolute;
+            width: 40%;
+            bottom: 5%;
+            left: 30%;
+        }
+
+        #c4 {
+            display: flex;
+            height: 10vh;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .c5 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(128, 128, 128, 0.335);
+            cursor: pointer;
+        }
+
+        #c4>:hover,
+        .active {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="c0" style="height: 50vh; border: solid;">
+        <div id="c1"></div>
+        <div id="before" onmouseout="this.innerHTML = '&#11160;'" onmouseover="this.innerHTML = '&#11164;' ">&#11160;
+        </div>
+        <div id="after" onmouseover="this.innerHTML = '&#11166;'" onmouseout="this.innerHTML = '&#11162;' ">&#11162;
+        </div>
+        <div id="c3">this is text</div>
+    </div>
+    <div id="c4">
+        <div class="c5" onclick="changebackgroundImage(0);"></div>
+        <div class="c5" onclick="changebackgroundImage(1);"></div>
+        <div class="c5" onclick="changebackgroundImage(2);"></div>
+    </div>
+    <script>
+        ArrayUrl = ['https://images4.alphacoders.com/115/thumb-1920-115716.jpg',
+            'https://pixy.org/src/477/4774988.jpg',
+            'https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2017/11/autumn_fireball/17255671-1-eng-GB/Autumn_fireball.jpg'
+        ];
+        let c0 = document.getElementById("c0");
+        let c1 = document.getElementById("c1");
+        let c3 = document.getElementById("c3");
+        let b = document.getElementById("before");
+        let a = document.getElementById("after");
+        let c5 = document.getElementsByClassName("c5");
+        let it = 1;
+        changebackgroundImage(it);
+        c0.style.backgroundSize = "100% 100%";
+
+        changeImageBefore();
+        changeImageafter();
+        function changebackgroundImage(n) {
+            c1.innerHTML = `${n + 1}/3`;
+            c3.innerHTML = `this is ${n + 1} image `;
+            c0.style.backgroundImage = `url(${ArrayUrl[n]})`;
+            for (let index = 0; index < ArrayUrl.length; index++) {
+                if (index === n) {
+                    c5[n].className = "c5 active";
+                } else {
+                    c5[index].className = c5[index].className.replace("c5 active", "c5");
+                }
+
+            }
+
+        }
+        function changeImageBefore() {
+
+            b.addEventListener("click", function (e) {
+                it = (it === 0) ? ArrayUrl.length - 1 : it - 1;
+                changebackgroundImage(it);
+            });
+        };
+        function changeImageafter() {
+
+            a.addEventListener("click", function (e) {
+                it = (it === ArrayUrl.length - 1) ? 0 : it + 1;
+                changebackgroundImage(it);
+
+            });
+        };
+
+    </script>
+</body>
+
+</html>
