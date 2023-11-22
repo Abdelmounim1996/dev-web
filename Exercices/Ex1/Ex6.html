@@ -134,6 +134,11 @@
 
             });
         };
+        let z = 0;
+        setInterval(function () {
+            changebackgroundImage(z);
+            z = (z == 2) ? 0 : z + 1;
+        }, 2000)
 
     </script>
 </body>
