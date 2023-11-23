@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: radial-gradient(circle at center, black, gray);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .c1 {
+        position: relative;
+        /* border: solid red; */
+        width: 300px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* z-index: 1; */
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .c2 {
+        background: linear-gradient(#00ccff, #d400d4);
+        width: 120%;
+        height: 100px;
+        position: absolute;
+        animation-name: a1;
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes a1 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    .c3 {
+        /* border: solid orange; */
+        background: #0e1538;
+        width: 280px;
+        height: 180px;
+        z-index: 2;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+    <div class="c1">
+        <div class="c3">
+        </div>
+        <div class="c2">
+        </div>
+    </div>
+</body>
+
+</html>
