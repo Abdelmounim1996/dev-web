@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        div.c0 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            box-shadow: 0px 0px 20px yellow;
+        }
+
+        .item {
+            width: 150px;
+            height: 150px;
+            border: solid azure;
+            color: white;
+            font-family: cursive;
+            font-size: 150px;
+            font-weight: bolder;
+            text-align: center;
+            line-height: 120px;
+            transition: transform 0.5s linear;
+        }
+
+        .item:hover {
+            background-color: rgb(54, 47, 47);
+            transform: scale(1.05, 1.05);
+        }
+
+        .c1 {
+            color: white;
+            text-decoration: underline;
+            text-transform: capitalize;
+            font-family: cursive;
+            font-size: 50px;
+            font-weight: bolder;
+            display: none;
+        }
+
+        .c00 {
+            overflow: hidden;
+            animation-name: a1;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+
+        }
+
+        @keyframes a1 {
+            0% {
+                transform: rotate(0deg);
+                border-radius: 0%;
+            }
+
+            30% {
+                border-radius: 50%;
+            }
+
+            100% {
+                transform: rotate(360deg) scale(0);
+                border-radius: 50%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="c0">
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+        <div class="item" onclick="clic(this)"></div>
+    </div>
+    <div class="c1">THE WINNER IS THE PLAYER : </div>
+
+    <script>
+        let condwin = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        indexs = [];
+        Gamer1 = [];
+        Gamer2 = [];
+
+        let role = true;
+        let items = document.getElementsByClassName("c0")[0].children;
+        function clic(el) {
+            let index = Array.prototype.indexOf.call(items, el);
+            if (!indexs.includes(index)) {
+                indexs.push(index);
+                if (role) {
+                    el.innerHTML = "X";
+                    Gamer1.push(index);
+                    checkwinner(Gamer1, 1);
+                    role = false;
+                }
+                else {
+                    el.innerHTML = "O";
+                    Gamer2.push(index);
+                    checkwinner(Gamer2, 2);
+                    role = true;
+                }
+            }
+        }
+
+
+        function checkwinner(arr, nbr_winner) {
+            if (arr.length >= 3) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr.length - i >= 3) {
+                        let newarr = arr.slice(i, arr.length).sort((a, b) => a - b);
+                        if (condwin.some(function (ls) { return ls.toString() === newarr.toString(); })) {
+                            let c0 = document.getElementsByClassName("c0")[0];
+                            let c1 = document.getElementsByClassName("c1")[0];
+                            c0.classList.toggle("c00", true);
+                            setTimeout(function () {
+                                c0.style.display = 'none';
+                                c1.innerHTML += `${nbr_winner}`;
+                                c1.style.display = 'block';
+                            }, 3500);
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
