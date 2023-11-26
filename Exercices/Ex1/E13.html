@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        * {
+            color: white;
+            border-color: white;
+        }
+
+        .c00 {
+            position: relative;
+            /* border: solid; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+        }
+
+        .c0 {
+            position: absolute;
+            border: solid white 10px;
+            border-radius: 50%;
+            height: 90%;
+            width: 90%;
+            box-shadow: 0 0 10px white;
+            transform: scale(0.9);
+            animation-name: a1;
+            animation-duration: 0.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes a1 {
+
+            0% {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+
+
+        .c1 {
+            border: solid;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            background-color: white;
+            box-shadow: 0 0 20px white;
+        }
+
+        .c2 {
+            border: solid;
+            width: 50%;
+            height: 10%;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c00">
+        <div class="c0">
+        </div>
+        <div class="c1">
+            <div class="c2"></div>
+            <div class="c2"></div>
+            <div class="c2"></div>
+        </div>
+    </div>
+</body>
+
+</html>
